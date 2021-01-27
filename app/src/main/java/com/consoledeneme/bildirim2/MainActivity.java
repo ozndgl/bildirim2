@@ -12,6 +12,7 @@ import android.media.RingtoneManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,10 +21,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+    }
+    public void gonder(View view){
         int reqCode = 1;
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        showNotification(this, "Title", "This is the message to display", intent, reqCode);
+        showNotification(this, "Mesaj Başlığı", "mesaj içeriği", intent, reqCode);
     }
+    public void kapat(View view){
+        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(1);
+    }
+
+
+
     public void showNotification(Context context, String title, String message, Intent intent, int reqCode) {
         //SharedPreferenceManager sharedPreferenceManager = SharedPreferenceManager.getInstance(context);
 
